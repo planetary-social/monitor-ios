@@ -9,11 +9,11 @@ import Foundation
 
 public class Monitor {
 
-    public static let shared = Monitor()
+    public static let shared = Monitor(service: MonitorServiceAdapter(apiService: BugsnagService()))
 
     var service: MonitorService
 
-    init(service: MonitorService = BugsnagService()) {
+    init(service: MonitorService) {
         self.service = service
     }
 
@@ -31,20 +31,14 @@ public class Monitor {
 
     public func crash() {
         let error = NSError(domain: "com.planetary.social", code: 408, userInfo: nil)
-        service.report(error: error)
+        service.report(error: error, metadata: nil)
     }
 
     public func record(_ message: String) {
         service.record(message)
     }
 
-    public func reportIfNeeded(error: Error?) {
-        if let error = error {
-            service.report(error: error)
-        }
-    }
-
-    public func reportIfNeeded(error: Error?, metadata: [AnyHashable: Any]) {
+    public func reportIfNeeded(error: Error?, metadata: [AnyHashable: Any]? = nil) {
         if let error = error {
             service.report(error: error, metadata: metadata)
         }

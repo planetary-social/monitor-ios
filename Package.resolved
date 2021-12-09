@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/bugsnag/bugsnag-cocoa",
         "state": {
           "branch": null,
-          "revision": "0c5d4e3a823675fa66b841521b3d0698af3866ce",
-          "version": "6.14.4"
+          "revision": "45e05a2a5c5a979b0eb9d20c04de03db6974d692",
+          "version": "6.15.1"
         }
       },
       {
@@ -17,24 +17,6 @@
           "branch": null,
           "revision": "e518eb6e362df327574ba5e04269cd6d29f40aec",
           "version": "3.7.2"
-        }
-      },
-      {
-        "package": "Logger",
-        "repositoryURL": "https://github.com/planetary-social/logger-ios",
-        "state": {
-          "branch": null,
-          "revision": "8c0fb24bbdbfee8212941abef1947eefbfa89042",
-          "version": "0.1.1"
-        }
-      },
-      {
-        "package": "Secrets",
-        "repositoryURL": "https://github.com/planetary-social/secrets-ios",
-        "state": {
-          "branch": null,
-          "revision": "43641227362a0bafc1fdb4245abe94817a4954c2",
-          "version": "0.0.1"
         }
       },
       {

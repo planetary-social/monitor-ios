@@ -1,14 +1,14 @@
 //
-//  MonitorServiceMock.swift
+//  APIServiceMock.swift
 //  
 //
-//  Created by Martin Dutra on 9/12/21.
+//  Created by Martin Dutra on 24/11/21.
 //
 
 import Foundation
 @testable import Monitor
 
-class MonitorServiceMock: MonitorService {
+class APIServiceMock: APIService {
 
     var identified: Bool = false
     var crashed: Bool = false
@@ -26,7 +26,7 @@ class MonitorServiceMock: MonitorService {
     func record(_ message: String) {
         recorded = true
     }
-
+    
     func report(error: Error, metadata: [AnyHashable: Any]?) {
         crashed = true
     }

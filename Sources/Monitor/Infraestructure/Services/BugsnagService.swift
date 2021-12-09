@@ -10,10 +10,10 @@ import Bugsnag
 import Secrets
 import Logger
 
-class BugsnagService: MonitorService {
+class BugsnagService: APIService {
 
-    init() {
-        guard let apiKey = Secrets.shared.get(key: .bugsnag) else {
+    init(secrets: Secrets = Secrets.shared) {
+        guard let apiKey = secrets.get(key: .bugsnag) else {
             Logger.shared.info("Error while configuring Bugsnag. ApiKey does not exist.")
             return
         }
@@ -38,19 +38,11 @@ class BugsnagService: MonitorService {
         Bugsnag.leaveBreadcrumb(withMessage: message)
     }
 
-    func report(error: Error) {
+    func report(error: Error, metadata: [AnyHashable : Any]?) {
         Bugsnag.notifyError(error) { event in
-            if let log = Logger.shared.fileUrls.first, let data = try? Data(contentsOf: log), let string = String(data: data, encoding: .utf8) {
-                event.addMetadata(string, key: "app", section: "logs")
+            if let metadata = metadata {
+                event.addMetadata(metadata, section: "metadata")
             }
-            // TODO: Send bot metadata
-            return true
-        }
-    }
-
-    func report(error: Error, metadata: [AnyHashable : Any]) {
-        Bugsnag.notifyError(error) { event in
-            event.addMetadata(metadata, section: "metadata")
             if let log = Logger.shared.fileUrls.first, let data = try? Data(contentsOf: log), let string = String(data: data, encoding: .utf8) {
                 event.addMetadata(string, key: "app", section: "logs")
             }
