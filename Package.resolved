@@ -20,6 +20,24 @@
         }
       },
       {
+        "package": "Logger",
+        "repositoryURL": "https://github.com/planetary-social/logger-ios",
+        "state": {
+          "branch": null,
+          "revision": "d702ccd6e95c1e3154b3206157b1cbf8ea1c7a3e",
+          "version": "0.0.2"
+        }
+      },
+      {
+        "package": "Secrets",
+        "repositoryURL": "https://github.com/planetary-social/secrets-ios",
+        "state": {
+          "branch": null,
+          "revision": "0952c06da65df7691fa7a5600a0ff3dd602088f2",
+          "version": "0.0.3"
+        }
+      },
+      {
         "package": "swift-log",
         "repositoryURL": "https://github.com/apple/swift-log.git",
         "state": {
