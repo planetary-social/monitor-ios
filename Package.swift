@@ -18,9 +18,11 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
         .package(name: "Logger",
-                 path: "../logger-ios"),
+                 url: "https://github.com/planetary-social/logger-ios",
+                 from: "0.0.2"),
         .package(name: "Secrets",
-                 path: "../secrets-ios"),
+                 url: "https://github.com/planetary-social/secrets-ios",
+                 from: "0.0.3"),
         .package(name: "Bugsnag",
                  url: "https://github.com/bugsnag/bugsnag-cocoa",
                  from: "6.9.5"),
